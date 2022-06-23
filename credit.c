@@ -65,7 +65,8 @@ int main(void)
     // printf("%i\n",sum2);
 
     value = sum + sum1 + sum2;
-    //printf("%i\n",value);
+    // printf("%i\n",value);
+    // printf("%i\n",count);
 
     if((value%10) == 0)
     {
@@ -111,6 +112,10 @@ int main(void)
                 printf("INVALID\n");
             }
 
+        }
+        else
+        {
+            printf("INVALID\n");
         }
     }
     else
