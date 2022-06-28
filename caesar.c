@@ -13,14 +13,14 @@ int main(int argc, string argv[])
     bool x = only_digits(l);
     return x;
     int a = atoi(l);
-    string s = get_string("plaintext:  ");
+    string s = get_string("plaintext:");
     int sl = strlen(s);
     char ciphertext[sl];
     for(int i = 0; i<sl; i++)
     {
        ciphertext[i] = rotate(s[i],a);
     }
-     printf("ciphertext: %s\n",ciphertext);
+     printf("Cipher:%s\n",ciphertext);
 }
 
 bool only_digits(string s)
@@ -29,11 +29,6 @@ bool only_digits(string s)
     if(isdigit(s[0]))
     {
         return 0;
-    }
-    else if(isalpha(s[0])||isalnum(s[0])||isspace(s[0]))
-    {
-        printf("Usage: ./caesar key\n");
-        return 1;
     }
     else
     {
