@@ -22,14 +22,19 @@ int main(int argc, string argv[])
     {
         int a = atoi(l);
         string s = get_string("plaintext:  ");
-        int sl = strlen(s);
-        //printf("sl:%i",sl);
-        char ciphertext[sl];
-        for(int i = 0; i < sl; i++)
+        int e = strlen(s);
+        //printf("E:%i",e);
+        char ciphertext[e];
+        for(int i = 0; i < e; i++)
         {
             ciphertext[i] = rotate(s[i],a);
         }
-        printf("ciphertext: %s\n",ciphertext);
+        printf("ciphertext: ");
+        for(int k =0 ; k < e; k++)
+        {
+            printf("%c",ciphertext[k]);
+        }
+        printf("\n");
         return 0;
     }
     else
