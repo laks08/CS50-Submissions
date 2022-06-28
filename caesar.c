@@ -13,14 +13,14 @@ int main(int argc, string argv[])
     bool x = only_digits(l);
     return x;
     int a = atoi(l);
-    string s = get_string("plaintext:");
+    string s = get_string("plaintext:  ");
     int sl = strlen(s);
     char ciphertext[sl];
     for(int i = 0; i<sl; i++)
     {
        ciphertext[i] = rotate(s[i],a);
     }
-     printf("Cipher:%s\n",ciphertext);
+     printf("ciphertext: %s\n",ciphertext);
 }
 
 bool only_digits(string s)
