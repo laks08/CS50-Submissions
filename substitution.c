@@ -14,11 +14,8 @@ int main(int argc, string argv[])
     }
         string s = argv[1];
         int n = strlen(s);// string key check
-        for(int i=0; i<n ; i++)
-        {
-            s[i] = toupper(s[i]);
-        }
         bool x = arg_check(s);
+        //printf("bool value:%d",x);
         if (x==1)
         {
             //printf("Error! Enter correct key!\n");
@@ -26,6 +23,10 @@ int main(int argc, string argv[])
         }
         else
         {
+            for(int i=0; i<n ; i++)
+            {
+                s[i] = toupper(s[i]);
+            }
             string plaintext = get_string("plaintext:");
             int n1 = strlen(plaintext);
             char c[n1];
@@ -68,28 +69,22 @@ bool arg_check(string str)
         {
             if(str[j] == str[i])
             {
-                check = 1;
-            }
-            else
-            {
-                check = 0;
+                check++;
             }
         }
     }
 
-    for ( int k = 0; k<n ; k++)
+    for (int k = 0; k<n ; k++)
     {
         if(!isalpha(str[k]))
         {
-            check1 = 1;
-        }
-        else
-        {
-            check1 = 0;
+            //printf("STEP:%i\n",k);
+            //printf("str:%c\n",str[k]);
+            check1++;
         }
     }
 
-    if(n==26 && check != 1 && check1 !=1)
+    if((n==26) && (check == 0) && (check1 == 0))
     {
         return 0;
     }
