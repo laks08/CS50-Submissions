@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: ran faster than the sort 3 but slower than 2 for sorted lists. Cycle ran once all values were already sorted.
+
+sort2 uses: Merge Sort
+
+How do you know?: Fastest runtime for all lists especially random list.
+
+sort3 uses: Selection Sort
+
+How do you know?: Worst runtime for all especially sorted list since the cycle ran multiple times to complete all the check steps for all the values even sorted.
