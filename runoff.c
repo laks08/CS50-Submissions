@@ -211,7 +211,15 @@ bool is_tie(int min)
         }
     }
     }
-    if(count + count_min == candidate_count)
+    int sub=0;
+    for (int i=0; i<candidate_count; i++)
+    {
+        if(candidates[i].eliminated==true)
+        {
+            sub++;
+        }
+    }
+    if(count + count_min == (candidate_count-sub))
     {
         return true;
     }
