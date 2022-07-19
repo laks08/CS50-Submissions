@@ -198,28 +198,17 @@ bool is_tie(int min)
         {
             count_min++;
         }
-
-    for(int j = 0; j < candidate_count && (j != i); j++)
-    {
-        if(candidates[j].votes != min)
+        else if(candidates[i].eliminated == false)
         {
-            for(int k=0; k < candidate_count && (k != i) && (k != j); k++ )
-            {
-                if(candidates[j].votes==candidates[k].votes)
-                count++;
-            }
+            count++;
         }
     }
-    }
+
     if(count + count_min == candidate_count)
     {
         return true;
     }
-    else
-    {
-        return false;
-    }
-
+    return false;
 }
 
 // Eliminate the candidate (or candidates) in last place
