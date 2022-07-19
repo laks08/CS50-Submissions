@@ -171,14 +171,19 @@ bool print_winner(void)
 {
     // TODO
     int max = candidates[0].votes;
+    int j = 0;
     for(int i = 1; i < candidate_count; i++)
     {
-        if((candidates[i].votes > max)&&(candidates[i].votes > ((voter_count/2)+1)))
+        if((candidates[i].votes > max))
         {
             max = candidates[i].votes;
-            printf("%s\n",candidates[i].name);
-            return true;
+            j = i;
         }
+    }
+    if(max > ((voter_count/2)+1))
+    {
+        printf("%s\n",candidates[j].name);
+        return true;
     }
     return false;
 }
