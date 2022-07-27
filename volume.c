@@ -38,13 +38,14 @@ int main(int argc, char *argv[])
 
     fread(header, HEADER_SIZE, 1, input);
     fwrite(header, HEADER_SIZE, 1, output);
+
     // TODO: Read samples from input file and write updated data to output file
     int16_t buffer;
 
     while(fread(&buffer, sizeof(buffer), 1, input))
     {
         buffer *= factor;// buffer = buffer * factor
-        fwrite(&buffer, sizeof(buffer), 1, input);
+        fwrite(&buffer, sizeof(buffer), 1, output);
     }
 
     // Close files
