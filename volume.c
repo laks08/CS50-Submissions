@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     }
 
     // Open files and determine scaling factor
-    FILE *input = f open(argv[1], "r");
+    FILE *input = fopen(argv[1], "r");
     if (input == NULL)
     {
         printf("Could not open file.\n");
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         buffer *= factor;// buffer = buffer * factor
         fwrite(&buffer, sizeof(buffer), 1, input);
     }
-    
+
     // Close files
     fclose(input);
     fclose(output);
