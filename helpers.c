@@ -97,6 +97,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for(int j = 0; j < width; j++)
         {
+            copy[i][j].rgbtRed = image[i][j].rgbtRed;
+            copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
+            copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
             int avg[3] = {0,0,0};
             int n = 0;
 
@@ -108,9 +111,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (a[x][y] >= 0 && b[x][y] >= 0)
                     {
-                    avg[0] += image[a[x][y]][b[x][y]].rgbtRed;
-                    avg[1] += image[a[x][y]][b[x][y]].rgbtGreen;
-                    avg[2] += image[a[x][y]][b[x][y]].rgbtBlue;
+                    avg[0] += copy[a[x][y]][b[x][y]].rgbtRed;
+                    avg[1] += copy[a[x][y]][b[x][y]].rgbtGreen;
+                    avg[2] += copy[a[x][y]][b[x][y]].rgbtBlue;
                     n++;
                     }
                  }
