@@ -100,11 +100,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtRed = image[i][j].rgbtRed;
             copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
             copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
+
             int avg[3] = {0,0,0};
             int n = 0;
 
-            int a[3][3] = {{i-1,i-1,i-1},{i,i,i},{i+1,i+1,i+1}};
-            int b[3][3] = {{j-1,j-1,j-1},{j,j,j},{j+1,j+1,j+1}};
+            int a[3][3] = {{i-1, i-1, i-1}, {i, i, i}, {i+1, i+1, i+1}};
+            int b[3][3] = {{j-1, j-1, j-1}, {j, j, j}, {j+1, j+1, j+1}};
+
             for(int x = 0; x < 3; x++)
             {
                 for(int y = 0; y < 3; y++)
@@ -121,6 +123,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
              avg[0] /= n;
              avg[1] /= n;
              avg[2] /= n;
+
              image[i][j].rgbtRed = avg[0];
              image[i][j].rgbtGreen = avg[1];
              image[i][j].rgbtBlue = avg[2];
