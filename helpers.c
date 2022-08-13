@@ -101,7 +101,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j].rgbtGreen = image[i][j].rgbtGreen;
             copy[i][j].rgbtBlue = image[i][j].rgbtBlue;
 
-            int avg[3] = {0,0,0};
+            int avgs[3] = {0,0,0};
             int n = 0;
 
             int a[3][3] = {{i-1, i-1, i-1}, {i, i, i}, {i+1, i+1, i+1}};
@@ -113,20 +113,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (a[x][y] >= 0 && b[x][y] >= 0)
                     {
-                    avg[0] += copy[a[x][y]][b[x][y]].rgbtRed;
-                    avg[1] += copy[a[x][y]][b[x][y]].rgbtGreen;
-                    avg[2] += copy[a[x][y]][b[x][y]].rgbtBlue;
+                    avgs[0] += copy[a[x][y]][b[x][y]].rgbtRed;
+                    avgs[1] += copy[a[x][y]][b[x][y]].rgbtGreen;
+                    avgs[2] += copy[a[x][y]][b[x][y]].rgbtBlue;
                     n++;
                     }
                  }
              }
-             avg[0] /= n;
-             avg[1] /= n;
-             avg[2] /= n;
+             avgs[0] /= n;
+             avgs[1] /= n;
+             avgs[2] /= n;
 
-             image[i][j].rgbtRed = avg[0];
-             image[i][j].rgbtGreen = avg[1];
-             image[i][j].rgbtBlue = avg[2];
+             image[i][j].rgbtRed = avgs[0];
+             image[i][j].rgbtGreen = avgs[1];
+             image[i][j].rgbtBlue = avgs[2];
         }
     }
     return;
