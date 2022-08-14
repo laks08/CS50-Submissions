@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
     {
         char *filename  = argv[1];
         FILE *file = fopen(filename, "r");
-        if(file == NULL)
+        if (file == NULL)
         {
-            printf("Unable to open file %s\n",filename);
+            printf("Unable to open file %s\n", filename);
             return 1;
         }
         BYTE buffer[512];
@@ -25,9 +25,9 @@ int main(int argc, char *argv[])
         int count  = 0;
         while (fread(&buffer, sizeof(buffer), 1, file) == 1)
         {
-            if(buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+            if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
             {
-                if(!(count==0))
+                if (!(count == 0))
                 {
                     fclose(jpgimg);
                 }
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
                 jpgimg = fopen(images, "w");
                 count++;
             }
-            if(!(count == 0))
+            if (!(count == 0))
             {
                 fwrite(&buffer, sizeof(buffer), 1, jpgimg);
             }
