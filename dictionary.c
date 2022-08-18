@@ -35,7 +35,7 @@ bool check(const char *word)
 
     while (cursor != 0)
     {
-        if(strcasecmp(word, cursor->word) == 0)
+        if (strcasecmp(word, cursor->word) == 0)
         {
             return true;
         }
@@ -49,7 +49,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned long total = 0;
-    for( int i = 0; i < strlen(word); i++)
+    for (int i = 0; i < strlen(word); i++)
     {
         total = total + tolower(word[i]);
     }
@@ -60,7 +60,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    FILE *file = fopen(dictionary,"r");
+    FILE *file = fopen(dictionary, "r");
     if (file == NULL)
     {
         printf("Unable to open file\n");
@@ -68,7 +68,7 @@ bool load(const char *dictionary)
     }
     char word[LENGTH + 1];
 
-    while(fscanf(file, "%s", word) != EOF)
+    while (fscanf(file, "%s", word) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
@@ -90,7 +90,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    if(count > 0)
+    if (count > 0)
     {
         return count;
     }
@@ -101,7 +101,7 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    for(int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
         node *cursor = table[i];
         while (cursor)
@@ -110,7 +110,7 @@ bool unload(void)
             cursor = cursor->next;
             free(temp);
         }
-        if (cursor == NULL && i == N-1)
+        if (cursor == NULL && i == N - 1)
         {
             return true;
         }
