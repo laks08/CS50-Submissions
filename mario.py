@@ -1,17 +1,20 @@
 # TODO
 
-while True:
-    height = input("Height: ")  # input height for user
-    try:
-        int(height)
-        break
-    except ValueError:
-        True
+def main():
 
-height = int(height)
-while True:
-    if (height > 0) and (height < 9):
-        break
+    h = height()
+    for i in range(h):  # loop for height times
+        print(' ' * (h - (i+1)) + '#' * (i+1))
 
-for i in range(height):  # loop for height times
-    print(' ' * (height - (i+1)) + '#' * (i+1))
+
+def height():
+    while True:
+        try:
+            height = int(input("Height: "))  # input height for user
+            if (height > 0) and (height < 9):
+                break
+        except ValueError:
+            True
+    return height
+
+main()
