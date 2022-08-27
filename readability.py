@@ -19,8 +19,11 @@ def main():
 
 
 def count_letters(text):
-    l_count = sum(not chr.isspace() for chr in text)
-    # print(l_count)
+    l_count = 0
+    for i in text:
+        if (i.isalpha()):
+            l_count = l_count + 1
+
     return l_count
 
 
