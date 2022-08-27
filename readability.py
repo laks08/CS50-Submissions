@@ -15,7 +15,7 @@ def main():
     elif grade < 1:
         print("Before Grade 1")
     else:
-        print("Grade :",int(grade))
+        print("Grade :",int(round(grade)))
 
 
 def count_letters(text):
@@ -23,6 +23,7 @@ def count_letters(text):
     for i in text:
         if (i.isalpha()):
             l_count = l_count + 1
+    # print(l_count)
 
     return l_count
 
