@@ -1,7 +1,15 @@
 # TODO
 
 while True:
-    height = int(input("Height: "))  # input height for user
+    height = input("Height: ")  # input height for user
+    try:
+        int(height)
+        break
+    except ValueError:
+        True
+
+height = int(height)
+while True:
     if (height > 0) and (height < 9):
         break
 
