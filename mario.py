@@ -9,12 +9,13 @@ def main():
 
 def height():
     while True:
-        try:
+        try:  # try and except for conditions
             height = int(input("Height: "))  # input height for user
-            if (height > 0) and (height < 9):
+            if (height > 0) and (height < 9):  # conditions
                 break
-        except ValueError:
+        except ValueError:  # except
             True
     return height
+
 
 main()
