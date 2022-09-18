@@ -1,0 +1,31 @@
+ body {
+    background-color: cyan;
+  }
+
+  h1 {
+    color: green;
+    margin-left: 10px;
+  }
+
+  p {
+    font-family: verdana;
+    font-size: 10px;
+  }
+  #about * {
+    border: 1px solid black;
+  }
+  #about {
+    width: auto;
+    margin: auto;
+  }
+  .error {
+    color: blue;
+  }
+  a { color: red; }
+  ul { margin-left: 0; }
+
+  div#inddx > ul {
+    border: 12px solid black;
+  }
+
+
