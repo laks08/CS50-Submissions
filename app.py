@@ -62,7 +62,7 @@ def buy():
 
     else:
         symbol = request.form.get("symbol")
-        shares = int(float(request.form.get("shares")))
+        shares = float(request.form.get("shares"))
 
         if not symbol:
             return apology("Symbol Needed")
@@ -72,7 +72,7 @@ def buy():
         if stock == None:
             return apology("Symbol does not exist")
 
-        if shares < 0:
+        if shares < 0 or not shares.is_integer():
             return apology("Shares not allowed")
 
         transaction_value = shares * stock["price"]
