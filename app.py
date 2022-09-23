@@ -62,11 +62,13 @@ def buy():
 
     else:
         symbol = request.form.get("symbol")
-
         try:
             shares = int(request.form.get("shares"))
         except:
-            return apology("Shares not allowed")
+            if (float(request.form.get("shares"))) % (10**(abs((decimal.Decimal(request.form.get("shares"))).as_tuple().exponent))) == 0:
+                shares = float(request.form.get("shares"))
+            else:
+                return apology("Shares not allowed")
         # try:
         #     shares = int(request.form.get("shares"))
         # except:
