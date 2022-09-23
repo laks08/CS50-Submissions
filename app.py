@@ -6,7 +6,6 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 import datetime
-import decimal
 
 from helpers import apology, login_required, lookup, usd
 
@@ -63,15 +62,7 @@ def buy():
 
     else:
         symbol = request.form.get("symbol")
-        try:
-            shares = int(request.form.get("shares"))
-        except:
-            shares = float(request.form.get("shares"))
-            d = decimal.Decimal(shares)
-            if (shares % (10**(abs(d.as_tuple().exponent))) == 0:
-                shares = float(request.form.get("shares"))
-            else:
-                return apology("Shares not allowed")
+        shares = int(request.form.get("shares"))
 
         if not symbol:
             return apology("Symbol Needed")
