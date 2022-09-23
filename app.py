@@ -62,7 +62,10 @@ def buy():
 
     else:
         symbol = request.form.get("symbol")
-        shares = int(request.form.get("shares"))
+        try:
+            shares = int(request.form.get("shares"))
+        except:
+            return apology("Shares not allowed")
 
         if not symbol:
             return apology("Symbol Needed")
