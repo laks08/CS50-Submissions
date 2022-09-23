@@ -65,9 +65,6 @@ def buy():
         try:
             shares = int(request.form.get("shares"))
         except:
-            try:
-                shares = float(request.form.get("shares"))
-            except:
                 return apology("Shares not allowed")
 
 
