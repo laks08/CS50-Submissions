@@ -78,7 +78,7 @@ def buy():
         transaction_value = shares * stock["price"]
 
         user_id = session["user_id"]
-        user_cash_db = db.execute("SELECT cash FROM users WHERE id = :id", id=user_id)
+        user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
         user_cash = user_cash_db[0]["cash"]
 
         if user_cash < transaction_value:
@@ -281,7 +281,7 @@ def sell():
         user_cash_db = db.execute("SELECT cash FROM users WHERE id = :id", id=user_id)
         user_cash = user_cash_db[0]["cash"]
 
-        user_shares = db.execute("SELECT SUM(shares) AS shares FROM transactions WHERE user_id=? AND symbol = ?", user_id, symbol)
+        user_shares = db.execute("SELECT SUM(shares) AS shares FROM transactions WHERE user_id = ? AND symbol = ?", user_id, symbol)
         user_shares_real = user_shares[0]["shares"]
 
         if shares > user_shares_real:
