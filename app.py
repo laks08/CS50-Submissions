@@ -62,10 +62,7 @@ def buy():
 
     else:
         symbol = request.form.get("symbol")
-        try:
-            shares = int(request.form.get("shares"))
-        except:
-            return apology("Shares not allowed")
+        shares = int(request.form.get("shares"))
         # try:
         #     shares = int(request.form.get("shares"))
         # except:
@@ -84,7 +81,7 @@ def buy():
         if stock == None:
             return apology("Symbol does not exist")
 
-        if shares < 0:
+        if int(shares) < 0:
             return apology("Shares not allowed")
 
         transaction_value = shares * stock["price"]
