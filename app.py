@@ -84,8 +84,8 @@ def buy():
         user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
         user_cash = int(user_cash_db[0]["cash"])
 
-        if user_cash < transaction_value:
-            return apology("Not enough Funds")
+        # if user_cash < transaction_value:
+        #     return apology("Not enough Funds")
 
         update_cash = user_cash - transaction_value
         db.execute("UPDATE users SET cash = ? WHERE id = ?", update_cash, user_id)
