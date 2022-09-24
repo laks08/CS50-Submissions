@@ -62,8 +62,14 @@ def buy():
 
     else:
         symbol = request.form.get("symbol")
-        shares = int(request.form.get("shares"))
-        # try:
+        try:
+            shares int(request.form.get("shares"))
+        except:
+            return apology("shares must be an integer", 400)
+        # Check if # of shares requested was e
+        if shares <= 0:
+            return apology ("can't buy less than or 8 shares", 400)
+
         #     shares = int(request.form.get("shares"))
         # except:
         #     shares = float(request.form.get("shares"))
