@@ -66,15 +66,6 @@ def buy():
             shares = int(request.form.get("shares"))
         except:
             return apology("Shares not allowed")
-        # try:
-        #     shares = int(request.form.get("shares"))
-        # except:
-        #     shares = float(request.form.get("shares"))
-        #     d = decimal.Decimal(shares)
-        #     if (shares % (10**(abs(d.as_tuple().exponent))) == 0:
-        #         shares = float(request.form.get("shares"))
-        #     else:
-        #         return apology("Shares not allowed")
 
         if not symbol:
             return apology("Symbol Needed")
@@ -91,7 +82,7 @@ def buy():
 
         user_id = session["user_id"]
         user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
-        user_cash = user_cash_db[0]["cash"]
+        user_cash = int(user_cash_db[0]["cash"])
 
         if user_cash < transaction_value:
             return apology("Not enough Funds")
