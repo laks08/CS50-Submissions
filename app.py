@@ -87,7 +87,7 @@ def buy():
         if shares <= 0:
             return apology("Shares not allowed")
 
-        transaction_value = shares * stock["price"]
+        transaction_value = shares * usd(stock["price"])
 
         user_id = session["user_id"]
         user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
